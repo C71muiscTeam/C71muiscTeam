@@ -5,7 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> 
+addEventListener("load",
+		function() { 
+			setTimeout(hideURLbar, 0);
+		}, false); 
+function hideURLbar(){ 
+			window.scrollTo(0,1);
+} 
+</script>
  <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
@@ -23,10 +31,10 @@
    
  <body class="sticky-header left-side-collapsed"  onload="initMap()">
     <section>
-      <!-- left side start-->
+      <!-- 左侧导航栏-->
 		<div class="left-side sticky-left-side">
 
-			<!--logo and iconic logo start-->
+			<!--主页-->
 			<div class="logo">
 				<h1><a href="index.html">Mosai<span>c</span></a></h1>
 			</div>
@@ -37,29 +45,29 @@
 			<!--logo and iconic logo end-->
 			<div class="left-side-inner">
 
-				<!--sidebar nav start-->
+				<!--侧移导航开始-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.html"><i class="lnr lnr-home"></i><span>Home</span></a></li>
-						<li><a href="radio.html"><i class="camera"></i> <span>Radio</span></a></li>
+						<li class="active"><a href="index.html"><i class="lnr lnr-home"></i><span>主页</span></a></li>
+						<li><a href="radio.html"><i class="camera"></i> <span>电台</span></a></li>
 						<li><a href="#" data-toggle="modal" data-target="#myModal1"><i class="fa fa-th"></i><span>Apps</span></a></li>
-						<li><a href="radio.html"><i class="lnr lnr-users"></i> <span>Artists</span></a></li> 
-						<li><a href="browse.html"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>						
-						<li class="menu-list"><a href="browse.html"><i class="lnr lnr-indent-increase"></i> <span>Browser</span></a>  
+						<li><a href="radio.html"><i class="lnr lnr-users"></i> <span>艺术家</span></a></li> 
+						<li><a href="browse.html"><i class="lnr lnr-music-note"></i> <span>专辑</span></a></li>						
+						<li class="menu-list"><a href="browse.html"><i class="lnr lnr-indent-increase"></i> <span>浏览</span></a>  
 							<ul class="sub-menu-list">
-								<li><a href="browse.html">Artists</a> </li>
+								<li><a href="browse.html">艺术家</a> </li>
 								<li><a href="404.html">Services</a> </li>
 							</ul>
 						</li>
-						<li><a href="blog.html"><i class="lnr lnr-book"></i><span>Blog</span></a></li>
-						<li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li>
-						<li class="menu-list"><a href="#"><i class="lnr lnr-heart"></i>  <span>My Favourities</span></a> 
+						<li><a href="blog.html"><i class="lnr lnr-book"></i><span>博客</span></a></li>
+						<li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>版面设计</span></a></li>
+						<li class="menu-list"><a href="#"><i class="lnr lnr-heart"></i>  <span>我喜欢的音乐</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="radio.html">All Songs</a></li>
+								<li><a href="radio.html">所有音乐</a></li>
 							</ul>
 						</li>
-						<li class="menu-list"><a href="contact.html"><i class="fa fa-thumb-tack"></i><span>Contact</span></a>
+						<li class="menu-list"><a href="contact.html"><i class="fa fa-thumb-tack"></i><span>联系我们</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="contact.html">Location</a> </li>
+								<li><a href="contact.html">地址</a> </li>
 							</ul>
 						</li>     
 					</ul>
@@ -98,7 +106,7 @@
 			</div>
 			<!-- //app-->
 
-		<!-- signup -->
+		<!--注册 -->
 			<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content modal-info">
@@ -138,14 +146,14 @@
 			<!-- //signup -->
 
 		<!-- left side end-->
-		<!-- main content start-->
+		<!-- 主要内容开始-->
 		<div class="main-content">
-			<!-- header-starts -->
+			<!-- 标题开始 -->
 			<div class="header-section">
-			<!--toggle button start-->
+			<!--切换按钮开始-->
 			<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
-			<!--toggle button end-->
-			<!--notification menu start -->
+			<!--切换按钮结束-->
+			<!--通知菜单开始 -->
 				<div class="menu-right">
 					<div class="profile_details">		
 						  <div class="col-md-4 serch-part">
@@ -158,7 +166,7 @@
 									</form>
 								</div>
 							</div>
-							  <!-- search-scripts -->
+							  <!-- 搜索脚本 -->
 									<script src="js/classie.js"></script>
 									<script src="js/uisearch.js"></script>
 										<script>
@@ -187,7 +195,8 @@
 													});
 												 });
 												</script>
-												<!--audio-->
+												<!--音频-->
+												
 													<link rel="stylesheet" type="text/css" media="all" href="css/audio.css">
 													<script type="text/javascript" src="js/mediaelement-and-player.min.js"></script>
 													<!---->
@@ -201,22 +210,22 @@
 											 </ul>	
 											</div>
 											<div class="col-md-4 login-pop">
-												<div id="loginpop"> <a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a><a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
+												<div id="loginpop"> <a href="#" id="loginButton"><span>登录 <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a><a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
 														<div id="loginBox">  
-												<form action="#" method="post" id="loginForm">
+												<form action="index.html" method="post" id="loginForm">
 																	<fieldset id="body">
 																		<fieldset>
-																			  <label for="email">Email Address</label>
+																			  <label for="email">邮箱地址</label>
 																			  <input type="text" name="email" id="email">
 																		</fieldset>
 																		<fieldset>
-																				<label for="password">Password</label>
+																				<label for="password">密码</label>
 																				<input type="password" name="password" id="password">
 																		 </fieldset>
-																		<input type="submit" id="login" value="Sign in">
-																		<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+																		<input type="submit" id="login" value="登录">
+																		<label for="checkbox"><input type="checkbox" id="checkbox"> <i>记住我</i></label>
 																	</fieldset>
-																<span><a href="#">Forgot your password?</a></span>
+																<span><a href="#">忘记密码?</a></span>
 														 </form>
 													</div>
 												</div>
@@ -228,14 +237,14 @@
 						</div>
 					<div class="clearfix"></div>
 				</div>
-			<!--notification menu end -->
+			<!--通知菜单结束 -->
 			<!-- //header-ends -->
 
 		<!-- //header-ends -->
 			<div id="page-wrapper">
 				<div class="inner-content">
 				      <div class="music-left">
-					      <!--banner-section-->
+					      <!--横幅部分-->
 							<div class="banner-section">
 								<div class="banner">
 									 <div class="callbacks_container">
@@ -322,7 +331,7 @@
 									});
 									});
 							</script>		
-					<!--//pop-up-box -->
+					<!--//弹出框 -->
 						<div class="albums">
 								<div class="tittle-head">
 									<h3 class="tittle">New Releases <span class="new">New</span></h3>
