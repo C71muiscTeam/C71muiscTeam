@@ -11,5 +11,36 @@ public class IndexAction {
 		
 		return "index";
 	}
+	@GetMapping("/single.html")
+	public String single() {
+		
+		return "single";
+	}
+	@GetMapping("/radio.html")
+	public String radio() {
+		
+		return "radio";
+	}
+	@GetMapping("/blog.html")
+	public String blog() {
+		
+		return "blog";
+	}
+	@GetMapping("/contact.html")
+	public String contact() {
+		
+		return "contact";
+	}
+	@GetMapping("/typography.html")
+	public String typography() {
+		
+		return "typography";
+	}
+	@GetMapping("/browse.html")
+	public String browse() {
+		
+		return "browse";
+	}
+	
 
 }
