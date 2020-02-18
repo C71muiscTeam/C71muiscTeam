@@ -9,37 +9,37 @@ public class IndexAction {
 	@GetMapping({"/","/index","/index.html"})
 	public String index() {
 		
-		return "index";
+		return "web/index";
 	}
 	@GetMapping("/single.html")
 	public String single() {
 		
-		return "single";
+		return "web/single";
 	}
 	@GetMapping("/radio.html")
 	public String radio() {
 		
-		return "radio";
+		return "web/radio";
 	}
 	@GetMapping("/blog.html")
 	public String blog() {
 		
-		return "blog";
+		return "web/blog";
 	}
 	@GetMapping("/contact.html")
 	public String contact() {
 		
-		return "contact";
+		return "web/contact";
 	}
 	@GetMapping("/typography.html")
 	public String typography() {
 		
-		return "typography";
+		return "web/typography";
 	}
 	@GetMapping("/browse.html")
 	public String browse() {
 		
-		return "browse";
+		return "web/browse";
 	}
 	
 
