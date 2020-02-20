@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.yc</groupId>
-	<artifactId>C71-S3-Tstt-muisc</artifactId>
+	<artifactId>C71-S3-Tsts-muisc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>C71-S3-Tstt-muisc</name>
+	<name>C71-S3-Tsts-muisc</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

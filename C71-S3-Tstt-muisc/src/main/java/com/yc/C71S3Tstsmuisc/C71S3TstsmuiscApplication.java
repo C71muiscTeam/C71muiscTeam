@@ -1,4 +1,4 @@
-package com.yc.C71S3Tsttmuisc;
+package com.yc.C71S3Tstsmuisc;
 
 
 import org.springframework.boot.SpringApplication;
@@ -9,9 +9,9 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 @SpringBootApplication
 
-public class C71S3TsttmuiscApplication {
+public class C71S3TstsmuiscApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(C71S3TsttmuiscApplication.class, args);
+		SpringApplication.run(C71S3TstsmuiscApplication.class, args);
 	}
 
 	@Bean

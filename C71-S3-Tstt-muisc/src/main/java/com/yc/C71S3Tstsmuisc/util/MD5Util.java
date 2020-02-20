@@ -1,4 +1,4 @@
-package com.yc.C71S3Tsttmuisc.util;
+package com.yc.C71S3Tstsmuisc.util;
 
 import java.security.MessageDigest;
 

@@ -1,4 +1,4 @@
-package com.yc.C71S3Tsttmuisc.web;
+package com.yc.C71S3Tstsmuisc.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
