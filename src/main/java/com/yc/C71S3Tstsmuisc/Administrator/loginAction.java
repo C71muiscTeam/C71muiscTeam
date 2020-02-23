@@ -22,7 +22,7 @@ import com.yc.C71S3Tstsmuisc.biz.AdminBiz;
 @RestController
 @SessionAttributes("loginedUser")
 public class loginAction {
-	@Resource
+	@Resource//管理员
 	private AdminBiz ub;
 	
 	@PostMapping("Administrator/login")

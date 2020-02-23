@@ -8,7 +8,7 @@ public class IndexAction {
 	
 	@GetMapping({"/","/index","/index.html"})
 	public String index() {
-		
+		//
 		return "web/index";
 	}
 	@GetMapping("/single.html")
