@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.C71S3Tstsmuisc.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.yc.C71S3Tstsmuisc.bean.User">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_name" jdbcType="VARCHAR" property="uName" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+    <result column="u_type" jdbcType="INTEGER" property="uType" />
+    <result column="u_time" jdbcType="TIMESTAMP" property="uTime" />
+    <result column="u_gender" jdbcType="VARCHAR" property="uGender" />
+    <result column="u_avaor" jdbcType="VARCHAR" property="uAvaor" />
+    <result column="u_email" jdbcType="VARCHAR" property="uEmail" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    u_id, u_name, u_password, u_type, u_time, u_gender, u_avaor, u_email
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.UserExample">
+    delete from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
+    insert into user (u_id, u_name, u_password, 
+      u_type, u_time, u_gender, 
+      u_avaor, u_email)
+    values (#{uId,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
+      #{uType,jdbcType=INTEGER}, #{uTime,jdbcType=TIMESTAMP}, #{uGender,jdbcType=VARCHAR}, 
+      #{uAvaor,jdbcType=VARCHAR}, #{uEmail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="uName != null">
+        u_name,
+      </if>
+      <if test="uPassword != null">
+        u_password,
+      </if>
+      <if test="uType != null">
+        u_type,
+      </if>
+      <if test="uTime != null">
+        u_time,
+      </if>
+      <if test="uGender != null">
+        u_gender,
+      </if>
+      <if test="uAvaor != null">
+        u_avaor,
+      </if>
+      <if test="uEmail != null">
+        u_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="uName != null">
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uType != null">
+        #{uType,jdbcType=INTEGER},
+      </if>
+      <if test="uTime != null">
+        #{uTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uGender != null">
+        #{uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="uAvaor != null">
+        #{uAvaor,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmail != null">
+        #{uEmail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.UserExample" resultType="java.lang.Long">
+    select count(*) from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user
+    <set>
+      <if test="record.uId != null">
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uName != null">
+        u_name = #{record.uName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uPassword != null">
+        u_password = #{record.uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uType != null">
+        u_type = #{record.uType,jdbcType=INTEGER},
+      </if>
+      <if test="record.uTime != null">
+        u_time = #{record.uTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.uGender != null">
+        u_gender = #{record.uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uAvaor != null">
+        u_avaor = #{record.uAvaor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uEmail != null">
+        u_email = #{record.uEmail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user
+    set u_id = #{record.uId,jdbcType=INTEGER},
+      u_name = #{record.uName,jdbcType=VARCHAR},
+      u_password = #{record.uPassword,jdbcType=VARCHAR},
+      u_type = #{record.uType,jdbcType=INTEGER},
+      u_time = #{record.uTime,jdbcType=TIMESTAMP},
+      u_gender = #{record.uGender,jdbcType=VARCHAR},
+      u_avaor = #{record.uAvaor,jdbcType=VARCHAR},
+      u_email = #{record.uEmail,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
+    update user
+    <set>
+      <if test="uName != null">
+        u_name = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uType != null">
+        u_type = #{uType,jdbcType=INTEGER},
+      </if>
+      <if test="uTime != null">
+        u_time = #{uTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uGender != null">
+        u_gender = #{uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="uAvaor != null">
+        u_avaor = #{uAvaor,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmail != null">
+        u_email = #{uEmail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
+    update user
+    set u_name = #{uName,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR},
+      u_type = #{uType,jdbcType=INTEGER},
+      u_time = #{uTime,jdbcType=TIMESTAMP},
+      u_gender = #{uGender,jdbcType=VARCHAR},
+      u_avaor = #{uAvaor,jdbcType=VARCHAR},
+      u_email = #{uEmail,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>
