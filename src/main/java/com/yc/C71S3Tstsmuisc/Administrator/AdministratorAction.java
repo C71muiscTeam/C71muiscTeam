@@ -67,6 +67,9 @@ public class AdministratorAction {
 		
 		return "Administrator/login";
 	}
-	
+	@GetMapping("/Administrator/register.html")
+	public String register() {
+		return "/Administrator/register";
+	}
 	
 }

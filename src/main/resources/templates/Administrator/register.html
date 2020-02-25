@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>欢迎登录后台管理系统</title>
-<link href="../css1/style.css" rel="stylesheet" type="text/css" />
+<link href="../css1/style1.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../js1/jquery.js"></script>
 <script src="../js1/cloud.js" type="text/javascript"></script>
 
@@ -42,15 +42,14 @@
        
     <div class="loginbox">
     
-    <form id="login" action="login" method="post">
+    <form id="reg" action="reg" method="post">
     <ul>
     <label id="message"></label>
      <li><input id="aName" name="aName" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
      <li><input id="aPassword" name="aPassword" type="password" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="" type="button" class="loginbtn" value="登录"  onclick="login()" />
-    <label><input name="" type="checkbox" value="" checked="checked" />记住密码</label>
-    <label><a href="#">忘记密码？</a></label>
-  	 <label><a href="register.html">注册</a></label></li>
+    <li><input name="" type="button" class="loginbtn" value="注册"  onclick="register()" />
+    <label><a href="login.html">已有账号？</a></label></li>
+   
     </ul>
     </form>
     
@@ -60,12 +59,12 @@
     
    
 <script type="text/javascript">
-function login(){
+function register(){
 	
 	var aName = $ ("#aName").val();
 	var aPassword = $ ("#aPassword").val();
 	
-	$.post("login",
+	$.post("register",
 			{
 			aName : aName,
 			aPassword : aPassword
@@ -74,7 +73,8 @@ function login(){
 				
 				if(result.code == 0){
 					var loginedUser = encodeURIComponent(result.data);
-					alert(result.msg);
+					alert(result.msg)
+					
 					window.location="main.html?loginedUser="+encodeURIComponent(loginedUser);
 					
 				}else if (result.code == 1){
@@ -82,9 +82,9 @@ function login(){
 					alert(result.msg);
 					
 				}else {
+				
 					$("#message").html("<a style='color: red'>"+result.msg+"</a>");
 				}
-				
 				
 			}
 	)

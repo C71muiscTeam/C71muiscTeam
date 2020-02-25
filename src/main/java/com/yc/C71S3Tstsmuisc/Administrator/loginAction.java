@@ -26,26 +26,27 @@ public class loginAction {
 	private AdminBiz ub;
 	
 	@PostMapping("Administrator/login")
-	public Result login(HttpServletResponse resp,@Valid Admin admin,Errors errors, Model m) {	
+	public Result login(@Valid Admin admin,Errors errors, Model m) {	
 		try {
-			m.addAttribute("loginedUser",admin);
+			
 			if(errors.hasErrors()) {
-				return new Result(2,"表单验证错误",errors.getFieldErrors());
+				return new Result(-1,"表单验证错误",errors.getFieldErrors());
 			}
 			
 		 
 			List<Admin> users = ub.loginUser(admin);
 			if(users.size()==1) {
+				m.addAttribute("loginedUser",admin);
 				return new Result(0,"登录成功",admin);
 			}else {
-				return new Result(1,"账号或密码错误");
+				return new Result(-1,"账号或密码错误");
 			}
 		
 			
 		
 		}catch (RuntimeException e) {
 			e.printStackTrace();
-			return new Result(3,"业务繁忙稍后再试");
+			return new Result(1,"业务繁忙稍后再试");
 			
 			
 		}

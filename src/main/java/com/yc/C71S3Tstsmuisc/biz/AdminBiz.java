@@ -28,4 +28,21 @@ public class AdminBiz {
 		
 	}
 	
+	public List<Admin> select(Admin admin){
+		AdminExample ae = new AdminExample();
+		ae.createCriteria()
+		.andANameEqualTo(admin.getaName());
+	
+		
+		return am.selectByExample(ae);
+		
+	}
+	
+	public int insert(Admin admin) {
+		
+		
+		
+		return am.insert(admin);
+	}
+	
 }
