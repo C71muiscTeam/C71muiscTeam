@@ -1,13 +1,24 @@
 package com.yc.C71S3Tstsmuisc.bean;
 
-public class Music {
-    private Integer mId;
+import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+public class Music implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Integer id;
+
+    @NotEmpty
     private String mName;
-
+    @NotNull
     private Integer mSingerid;
 
-    private Integer mAlbum;
+    private Integer mAlbumid;
 
     private String mType;
 
@@ -17,12 +28,17 @@ public class Music {
 
     private String mLanguage;
 
-    public Integer getmId() {
-        return mId;
+    private Integer mCheck;
+
+    private Singer singer;
+    
+    private Album album;
+    public Integer getId() {
+        return id;
     }
 
-    public void setmId(Integer mId) {
-        this.mId = mId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getmName() {
@@ -41,12 +57,12 @@ public class Music {
         this.mSingerid = mSingerid;
     }
 
-    public Integer getmAlbum() {
-        return mAlbum;
+    public Integer getmAlbumid() {
+        return mAlbumid;
     }
 
-    public void setmAlbum(Integer mAlbum) {
-        this.mAlbum = mAlbum;
+    public void setmAlbumid(Integer mAlbumid) {
+        this.mAlbumid = mAlbumid;
     }
 
     public String getmType() {
@@ -80,4 +96,40 @@ public class Music {
     public void setmLanguage(String mLanguage) {
         this.mLanguage = mLanguage == null ? null : mLanguage.trim();
     }
+
+    public Integer getmCheck() {
+        return mCheck;
+    }
+
+    public void setmCheck(Integer mCheck) {
+        this.mCheck = mCheck;
+    }
+
+	/**
+	 * @return the singer
+	 */
+	public Singer getSinger() {
+		return singer;
+	}
+
+	/**
+	 * @param singer the singer to set
+	 */
+	public void setSinger(Singer singer) {
+		this.singer = singer;
+	}
+
+	/**
+	 * @return the album
+	 */
+	public Album getAlbum() {
+		return album;
+	}
+
+	/**
+	 * @param album the album to set
+	 */
+	public void setAlbum(Album album) {
+		this.album = album;
+	}
 }

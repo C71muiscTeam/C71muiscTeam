@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.C71S3Tstsmuisc.dao.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.yc.C71S3Tstsmuisc.bean.Article">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="b_title" jdbcType="VARCHAR" property="bTitle" />
+    <result column="b_author" jdbcType="VARCHAR" property="bAuthor" />
+    <result column="b_createTime" jdbcType="TIMESTAMP" property="bCreatetime" />
+    <result column="b_readCnt" jdbcType="INTEGER" property="bReadcnt" />
+    <result column="b_agreeCnt" jdbcType="INTEGER" property="bAgreecnt" />
+    <result column="b_commCnt" jdbcType="INTEGER" property="bCommcnt" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yc.C71S3Tstsmuisc.bean.Article">
+    <result column="b_content" jdbcType="LONGVARCHAR" property="bContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, b_title, b_author, b_createTime, b_readCnt, b_agreeCnt, b_commCnt
+  </sql>
+  <sql id="Blob_Column_List">
+    b_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.yc.C71S3Tstsmuisc.bean.ArticleExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.ArticleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.ArticleExample">
+    delete from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.C71S3Tstsmuisc.bean.Article">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into article (b_title, b_author, b_createTime, 
+      b_readCnt, b_agreeCnt, b_commCnt, 
+      b_content)
+    values (#{bTitle,jdbcType=VARCHAR}, #{bAuthor,jdbcType=VARCHAR}, #{bCreatetime,jdbcType=TIMESTAMP}, 
+      #{bReadcnt,jdbcType=INTEGER}, #{bAgreecnt,jdbcType=INTEGER}, #{bCommcnt,jdbcType=INTEGER}, 
+      #{bContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.C71S3Tstsmuisc.bean.Article">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bTitle != null">
+        b_title,
+      </if>
+      <if test="bAuthor != null">
+        b_author,
+      </if>
+      <if test="bCreatetime != null">
+        b_createTime,
+      </if>
+      <if test="bReadcnt != null">
+        b_readCnt,
+      </if>
+      <if test="bAgreecnt != null">
+        b_agreeCnt,
+      </if>
+      <if test="bCommcnt != null">
+        b_commCnt,
+      </if>
+      <if test="bContent != null">
+        b_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bTitle != null">
+        #{bTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="bAuthor != null">
+        #{bAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="bCreatetime != null">
+        #{bCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bReadcnt != null">
+        #{bReadcnt,jdbcType=INTEGER},
+      </if>
+      <if test="bAgreecnt != null">
+        #{bAgreecnt,jdbcType=INTEGER},
+      </if>
+      <if test="bCommcnt != null">
+        #{bCommcnt,jdbcType=INTEGER},
+      </if>
+      <if test="bContent != null">
+        #{bContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.ArticleExample" resultType="java.lang.Long">
+    select count(*) from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update article
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.bTitle != null">
+        b_title = #{record.bTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bAuthor != null">
+        b_author = #{record.bAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bCreatetime != null">
+        b_createTime = #{record.bCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bReadcnt != null">
+        b_readCnt = #{record.bReadcnt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bAgreecnt != null">
+        b_agreeCnt = #{record.bAgreecnt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bCommcnt != null">
+        b_commCnt = #{record.bCommcnt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bContent != null">
+        b_content = #{record.bContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update article
+    set id = #{record.id,jdbcType=INTEGER},
+      b_title = #{record.bTitle,jdbcType=VARCHAR},
+      b_author = #{record.bAuthor,jdbcType=VARCHAR},
+      b_createTime = #{record.bCreatetime,jdbcType=TIMESTAMP},
+      b_readCnt = #{record.bReadcnt,jdbcType=INTEGER},
+      b_agreeCnt = #{record.bAgreecnt,jdbcType=INTEGER},
+      b_commCnt = #{record.bCommcnt,jdbcType=INTEGER},
+      b_content = #{record.bContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update article
+    set id = #{record.id,jdbcType=INTEGER},
+      b_title = #{record.bTitle,jdbcType=VARCHAR},
+      b_author = #{record.bAuthor,jdbcType=VARCHAR},
+      b_createTime = #{record.bCreatetime,jdbcType=TIMESTAMP},
+      b_readCnt = #{record.bReadcnt,jdbcType=INTEGER},
+      b_agreeCnt = #{record.bAgreecnt,jdbcType=INTEGER},
+      b_commCnt = #{record.bCommcnt,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.C71S3Tstsmuisc.bean.Article">
+    update article
+    <set>
+      <if test="bTitle != null">
+        b_title = #{bTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="bAuthor != null">
+        b_author = #{bAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="bCreatetime != null">
+        b_createTime = #{bCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bReadcnt != null">
+        b_readCnt = #{bReadcnt,jdbcType=INTEGER},
+      </if>
+      <if test="bAgreecnt != null">
+        b_agreeCnt = #{bAgreecnt,jdbcType=INTEGER},
+      </if>
+      <if test="bCommcnt != null">
+        b_commCnt = #{bCommcnt,jdbcType=INTEGER},
+      </if>
+      <if test="bContent != null">
+        b_content = #{bContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yc.C71S3Tstsmuisc.bean.Article">
+    update article
+    set b_title = #{bTitle,jdbcType=VARCHAR},
+      b_author = #{bAuthor,jdbcType=VARCHAR},
+      b_createTime = #{bCreatetime,jdbcType=TIMESTAMP},
+      b_readCnt = #{bReadcnt,jdbcType=INTEGER},
+      b_agreeCnt = #{bAgreecnt,jdbcType=INTEGER},
+      b_commCnt = #{bCommcnt,jdbcType=INTEGER},
+      b_content = #{bContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.C71S3Tstsmuisc.bean.Article">
+    update article
+    set b_title = #{bTitle,jdbcType=VARCHAR},
+      b_author = #{bAuthor,jdbcType=VARCHAR},
+      b_createTime = #{bCreatetime,jdbcType=TIMESTAMP},
+      b_readCnt = #{bReadcnt,jdbcType=INTEGER},
+      b_agreeCnt = #{bAgreecnt,jdbcType=INTEGER},
+      b_commCnt = #{bCommcnt,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

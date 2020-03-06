@@ -104,63 +104,63 @@ public class CollectExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andCIdIsNull() {
-            addCriterion("c_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCIdIsNotNull() {
-            addCriterion("c_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCIdEqualTo(Integer value) {
-            addCriterion("c_id =", value, "cId");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdNotEqualTo(Integer value) {
-            addCriterion("c_id <>", value, "cId");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdGreaterThan(Integer value) {
-            addCriterion("c_id >", value, "cId");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("c_id >=", value, "cId");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdLessThan(Integer value) {
-            addCriterion("c_id <", value, "cId");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdLessThanOrEqualTo(Integer value) {
-            addCriterion("c_id <=", value, "cId");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdIn(List<Integer> values) {
-            addCriterion("c_id in", values, "cId");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdNotIn(List<Integer> values) {
-            addCriterion("c_id not in", values, "cId");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdBetween(Integer value1, Integer value2) {
-            addCriterion("c_id between", value1, value2, "cId");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andCIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("c_id not between", value1, value2, "cId");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -341,126 +341,6 @@ public class CollectExample {
 
         public Criteria andCListidNotBetween(Integer value1, Integer value2) {
             addCriterion("c_listid not between", value1, value2, "cListid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidIsNull() {
-            addCriterion("c_albumid is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidIsNotNull() {
-            addCriterion("c_albumid is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidEqualTo(Integer value) {
-            addCriterion("c_albumid =", value, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidNotEqualTo(Integer value) {
-            addCriterion("c_albumid <>", value, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidGreaterThan(Integer value) {
-            addCriterion("c_albumid >", value, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("c_albumid >=", value, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidLessThan(Integer value) {
-            addCriterion("c_albumid <", value, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidLessThanOrEqualTo(Integer value) {
-            addCriterion("c_albumid <=", value, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidIn(List<Integer> values) {
-            addCriterion("c_albumid in", values, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidNotIn(List<Integer> values) {
-            addCriterion("c_albumid not in", values, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidBetween(Integer value1, Integer value2) {
-            addCriterion("c_albumid between", value1, value2, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCAlbumidNotBetween(Integer value1, Integer value2) {
-            addCriterion("c_albumid not between", value1, value2, "cAlbumid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridIsNull() {
-            addCriterion("c_singerid is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridIsNotNull() {
-            addCriterion("c_singerid is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridEqualTo(Integer value) {
-            addCriterion("c_singerid =", value, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridNotEqualTo(Integer value) {
-            addCriterion("c_singerid <>", value, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridGreaterThan(Integer value) {
-            addCriterion("c_singerid >", value, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridGreaterThanOrEqualTo(Integer value) {
-            addCriterion("c_singerid >=", value, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridLessThan(Integer value) {
-            addCriterion("c_singerid <", value, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridLessThanOrEqualTo(Integer value) {
-            addCriterion("c_singerid <=", value, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridIn(List<Integer> values) {
-            addCriterion("c_singerid in", values, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridNotIn(List<Integer> values) {
-            addCriterion("c_singerid not in", values, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridBetween(Integer value1, Integer value2) {
-            addCriterion("c_singerid between", value1, value2, "cSingerid");
-            return (Criteria) this;
-        }
-
-        public Criteria andCSingeridNotBetween(Integer value1, Integer value2) {
-            addCriterion("c_singerid not between", value1, value2, "cSingerid");
             return (Criteria) this;
         }
     }

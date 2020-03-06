@@ -10,7 +10,7 @@ public interface CollectMapper {
 
     int deleteByExample(CollectExample example);
 
-    int deleteByPrimaryKey(Integer cId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Collect record);
 
@@ -18,7 +18,7 @@ public interface CollectMapper {
 
     List<Collect> selectByExample(CollectExample example);
 
-    Collect selectByPrimaryKey(Integer cId);
+    Collect selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Collect record, @Param("example") CollectExample example);
 

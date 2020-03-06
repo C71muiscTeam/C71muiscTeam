@@ -2,13 +2,11 @@ package com.yc.C71S3Tstsmuisc.bean;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotEmpty;
-
 public class User {
-    private Integer uId;
-    @NotEmpty
+    private Integer id;
+
     private String uName;
-    @NotEmpty
+
     private String uPassword;
 
     private Integer uType;
@@ -21,12 +19,12 @@ public class User {
 
     private String uEmail;
 
-    public Integer getuId() {
-        return uId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getuName() {

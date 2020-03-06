@@ -21,11 +21,11 @@ public class RegisterAction {
 	
 	
 	
-	@PostMapping("/Administrator/register")
-	public Result reg(@Valid Admin admin,Model model,Errors errors) {
-		
+	@PostMapping("Administrator/register")
+	public Result reg(@Valid Admin admin,Errors errors,Model model) {
+		try {
 		if(errors.hasErrors()) {
-			return new Result(-1,"表单验证错误",errors.getFieldErrors());
+			return new Result(-1,"用户名或密码不能为空",errors.getFieldErrors());
 		}
 		if(ab.select(admin).size()!=0) {
 			return new Result(-1,"该用户名已存在");
@@ -37,7 +37,9 @@ public class RegisterAction {
 			return new Result(1,"系统繁忙，请稍后在试！");	
 		}
 		
-		
+		}catch (Exception e) {
+			return new Result(1,"系统繁忙，请稍后在试！");	
+		}
 		
 		
 	}

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data;charset=utf-8"/>
+<title></title>
+<link href="../css1/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js1/jquery.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				//删除记录
+				$(".deletes").click(function() {
+					$(".tip").fadeIn(200);
+				});
+
+				$(".tiptop a").click(function() {
+					$(".tip").fadeOut(200);
+				});
+
+				$(".sure").click(function() {
+					var ids = "";
+					var cont = 0;
+					$(".checkboxs").each(function() {
+						if ($(this).is(':checked')) {
+							ids += $(this).val() + ",";
+							cont++;
+						}
+					});
+					if (cont == 0) {
+						$(".tip").fadeOut(100);
+					} else {
+						window.location = "deletes?ids=" + ids;
+						$(".tip").fadeOut(100);
+					}
+				});
+
+				$(".cancel").click(function() {
+					$(".tip").fadeOut(100);
+				});
+
+				$(".click").click(function() {
+					$(".tip1").fadeIn(100);
+
+				});
+				//提交表单	
+			$(".sure1").click(function() {						
+				$("#addAlbum").submit();			
+					var alName = $("#alName").val();
+					var alSingerid = $("#alSingerid").val();
+					var mAlbuid = $("#mAlbuid").val();
+					var mType = $("#mType").val();					
+					var mLanguage = $("#mLanguage").val();
+					
+					
+					$.post("testMusic", {					
+						alName : alName,
+						alSingerid : alSingerid,						
+					}, function(result) {
+
+						switch (result.code) {
+							case 1:
+								alert(result.msg);
+								
+								$(".tip1").fadeOut(100);
+								window.location = "album.html";
+								break;
+							case 2:
+								$("#message").html(
+										"<a style='color: red'>"
+												+ result.msg + "</a>");
+								break;
+							case 3:
+								alert(result.msg);
+								break;
+							case 4:
+								alert(result.msg);
+								break;
+							case 5:
+								alert(result.msg);
+								break;	
+							default:
+								alert(result.msg);
+								break;
+                	}
+
+					});			
+	
+				});
+
+				$(".cancel1").click(function() {
+					$(".tip1").fadeOut(100);
+				});
+
+				$(".tiptop1 a").click(function() {
+					$(".tip1").fadeOut(200);
+				});
+
+				//全选全不选
+				$(".checkbox_all").click(function() {
+					if ($(".checkbox_all").is(':checked')) {
+						$(".checkboxs").each(function() {
+							$(this).attr("checked", "checked");
+						});
+
+					} else {
+						$(".checkboxs").each(function() {
+							$(this).attr("checked", "");
+						});
+
+					}
+				});
+			});
+</script>
+
+
+</head>
+
+
+<body>
+
+	<div class="place">
+		<span>位置：</span>
+		<ul class="placeul">
+			<li><a href="index.html">首页</a></li>
+			<li><a href="#">音乐管理</a></li>
+
+		</ul>
+	</div>
+
+	<div class="rightinfo">
+
+		<div class="tools">
+
+			<ul class="toolbar">
+				<li class="click"><span><img src="../images1/t01.png" /></span>添加</li>
+				<li><span><img src="../images1/t03.png" /></span>删除</li>
+
+			</ul>
+			<input class="search" style="line-height: 33px" type="text"
+				value="输入歌曲名称" /> <input type="button"
+				style="line-height: 33px; width: 33px" onclick="" value="搜索" />
+
+
+		</div>
+
+
+		<table class="tablelist">
+			<thead>
+				<tr>
+					<th><input class="checkbox_all" name="" type="checkbox"
+						value="" /></th>
+					<th>编号<i class="sort"><img src="../images1/px.gif" /></i></th>
+					<th>专辑名称</th>
+					<th>歌手</th>
+					<th>歌曲数量</th>				
+					<th>下载量</th>
+					<th>专辑图片</th>				
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="album,iterStat: ${albums.list}">
+					<td><input class="checkboxs" th:id="${album.id}" name=""
+						type="checkbox" value="" /></td>
+					<td th:text="${album.id}"></td>
+					<td th:text="${album.alName}"></td>
+					<td th:text="${album.singer.sName}"></td>	
+					<td th:text="${album.musics.size()}"></td>
+					<td><img th:src="${album.alPicture}" alt="" /></td>							
+					<td><input th:id="${album.id}" type="button"
+						th:onclick="alter(album.id)" value="修改" /> <input
+						th:id="${album.id}" type="button"
+						th:onclick="deletemusic(this.id)" value="下架" /></td>
+				</tr>
+
+
+			</tbody>
+		</table>
+
+
+		<div class="pagin">
+			<div class="message">
+				共<i class="blue" th:text="${albums.total}"></i>条记录，当前显示第&nbsp;<i
+					class="blue" th:text="${albums.pageNum}">&nbsp;</i>页
+			</div>
+			<ul class="paginList">
+				<li class="paginItem"><a th:href="@{album.html}">首页</a></li>
+				<li class="paginItem"><a
+					th:href="@{pageMusic1(pageNum=${albums.prePage})}"><span
+						class="pagepre"></span></a></li>
+				<li class="paginItem"><a
+					th:href="@{pageMusic1(pageNum=${albums.nextPage})}"><span
+						class="pagenxt"></span></a></li>
+				<li class="paginItem"><a
+					th:href="@{pageMusic1(pageNum=${albums.pages})}">尾页</a></li>
+			</ul>
+		</div>
+
+
+		<div class="tip">
+			<div class="tiptop">
+				<span>提示信息</span><a></a>
+			</div>
+
+			<div class="tipinfo">
+				<span><img src="../images1/ticon.png" /></span>
+				<div class="tipright">
+					<p>是否确认对信息的修改 ？</p>
+					<cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+				</div>
+			</div>
+
+			<div class="tipbtn">
+				<input name="" type="button" class="sure" value="确定" />&nbsp; <input
+					name="" type="button" class="cancel" value="取消" />
+			</div>
+
+		</div>
+
+		<div class="tip1">
+			<div class="tiptop1">
+				<span>修改歌曲信息</span><a></a>
+			</div>
+
+			<div class="tipinfo1">
+				<div class="tipright1">
+					<form id="addAlbum" action="/Administrator/addAlbum" method="post" enctype="multipart/form-data">
+						<label id="message"></label><br /> 
+						<input id="id" name="id" type="hidden"/>
+						专辑名称：<br /> <input id="alName" name="alName" class="dfinput" type="text" /><br />
+					        演唱歌手id：<br /> <input id="alSingerid" name="alSingerid" class="dfinput" type="text" /><br />					      
+					        歌曲图片: <br /><input id="file" name="file" type="file" /><br /> 
+					</form>
+					<br />
+
+				</div>
+			</div>
+
+			<div class="tipbtn1">
+				<input name="" type="button" class="sure1" value="确定" />&nbsp; <input
+					name="" type="button" class="cancel1" value="取消" />
+			</div>
+
+		</div>
+
+
+
+
+
+	</div>
+
+	<script type="text/javascript">
+		$('.tablelist tbody tr:odd').addClass('odd');
+
+		function deletemusic(id) {
+			$(".tip").fadeIn(200);
+
+			$(".sure").click(function() {
+				window.location = "delete?id=" + id;
+				$(".tip").fadeOut(100);
+			});
+
+			$(".cancel").click(function() {
+				$(".tip").fadeOut(100);
+			});
+
+			$(".tiptop a").click(function() {
+				$(".tip").fadeOut(200);
+			});
+		}
+
+		function alter(id) {
+			$(".tip1").fadeIn(200);
+			
+			$(".sure1").click(
+					function() {
+						
+						var alName = $("#alName").val();
+						var alSingerid = $("#alSingerid").val();
+						var mAlbuid = $("#mAlbuid").val();
+						var mType = $("#mType").val();
+						var file = $("#file").val();
+						var mLanguage = $("#mLanguage").val();
+
+						$.post("addAlbum", {
+							id : id,
+							alName : alName,
+							alSingerid : alSingerid,														
+						}, function(result) {
+
+							switch (result.code) {
+							case 1:
+								alert(result.msg);
+								$(".tip1").fadeOut(100);
+								window.location = "album.html";
+								break;
+							case 2:
+								$("#message").html(
+										"<a style='color: red'>"
+												+ result.msg + "</a>");
+								break;
+							case 3:
+								alert(result.msg);
+								break;
+							case 4:
+								alert(result.msg);
+								break;
+							case 5:
+								alert(result.msg);
+								break;	
+							default:
+								alert(result.msg);
+								break;
+	                	}
+
+						});
+
+					});
+
+			$(".cancel1").click(function() {
+				$(".tip1").fadeOut(100);
+			});
+
+			$(".tiptop1 a").click(function() {
+				$(".tip1").fadeOut(200);
+			});
+		}
+	</script>
+</body>
+</html>

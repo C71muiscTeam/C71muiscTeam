@@ -10,7 +10,7 @@ public interface MusicMapper {
 
     int deleteByExample(MusicExample example);
 
-    int deleteByPrimaryKey(Integer mId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Music record);
 
@@ -18,7 +18,7 @@ public interface MusicMapper {
 
     List<Music> selectByExample(MusicExample example);
 
-    Music selectByPrimaryKey(Integer mId);
+    Music selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Music record, @Param("example") MusicExample example);
 

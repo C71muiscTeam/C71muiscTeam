@@ -104,63 +104,63 @@ public class MusicExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andMIdIsNull() {
-            addCriterion("m_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andMIdIsNotNull() {
-            addCriterion("m_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMIdEqualTo(Integer value) {
-            addCriterion("m_id =", value, "mId");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdNotEqualTo(Integer value) {
-            addCriterion("m_id <>", value, "mId");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdGreaterThan(Integer value) {
-            addCriterion("m_id >", value, "mId");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("m_id >=", value, "mId");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdLessThan(Integer value) {
-            addCriterion("m_id <", value, "mId");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdLessThanOrEqualTo(Integer value) {
-            addCriterion("m_id <=", value, "mId");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdIn(List<Integer> values) {
-            addCriterion("m_id in", values, "mId");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdNotIn(List<Integer> values) {
-            addCriterion("m_id not in", values, "mId");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdBetween(Integer value1, Integer value2) {
-            addCriterion("m_id between", value1, value2, "mId");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("m_id not between", value1, value2, "mId");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -294,63 +294,63 @@ public class MusicExample {
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumIsNull() {
-            addCriterion("m_album is null");
+        public Criteria andMAlbumidIsNull() {
+            addCriterion("m_albumid is null");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumIsNotNull() {
-            addCriterion("m_album is not null");
+        public Criteria andMAlbumidIsNotNull() {
+            addCriterion("m_albumid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumEqualTo(Integer value) {
-            addCriterion("m_album =", value, "mAlbum");
+        public Criteria andMAlbumidEqualTo(Integer value) {
+            addCriterion("m_albumid =", value, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumNotEqualTo(Integer value) {
-            addCriterion("m_album <>", value, "mAlbum");
+        public Criteria andMAlbumidNotEqualTo(Integer value) {
+            addCriterion("m_albumid <>", value, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumGreaterThan(Integer value) {
-            addCriterion("m_album >", value, "mAlbum");
+        public Criteria andMAlbumidGreaterThan(Integer value) {
+            addCriterion("m_albumid >", value, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("m_album >=", value, "mAlbum");
+        public Criteria andMAlbumidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("m_albumid >=", value, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumLessThan(Integer value) {
-            addCriterion("m_album <", value, "mAlbum");
+        public Criteria andMAlbumidLessThan(Integer value) {
+            addCriterion("m_albumid <", value, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumLessThanOrEqualTo(Integer value) {
-            addCriterion("m_album <=", value, "mAlbum");
+        public Criteria andMAlbumidLessThanOrEqualTo(Integer value) {
+            addCriterion("m_albumid <=", value, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumIn(List<Integer> values) {
-            addCriterion("m_album in", values, "mAlbum");
+        public Criteria andMAlbumidIn(List<Integer> values) {
+            addCriterion("m_albumid in", values, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumNotIn(List<Integer> values) {
-            addCriterion("m_album not in", values, "mAlbum");
+        public Criteria andMAlbumidNotIn(List<Integer> values) {
+            addCriterion("m_albumid not in", values, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumBetween(Integer value1, Integer value2) {
-            addCriterion("m_album between", value1, value2, "mAlbum");
+        public Criteria andMAlbumidBetween(Integer value1, Integer value2) {
+            addCriterion("m_albumid between", value1, value2, "mAlbumid");
             return (Criteria) this;
         }
 
-        public Criteria andMAlbumNotBetween(Integer value1, Integer value2) {
-            addCriterion("m_album not between", value1, value2, "mAlbum");
+        public Criteria andMAlbumidNotBetween(Integer value1, Integer value2) {
+            addCriterion("m_albumid not between", value1, value2, "mAlbumid");
             return (Criteria) this;
         }
 
@@ -621,6 +621,66 @@ public class MusicExample {
 
         public Criteria andMLanguageNotBetween(String value1, String value2) {
             addCriterion("m_language not between", value1, value2, "mLanguage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckIsNull() {
+            addCriterion("m_check is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckIsNotNull() {
+            addCriterion("m_check is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckEqualTo(Integer value) {
+            addCriterion("m_check =", value, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckNotEqualTo(Integer value) {
+            addCriterion("m_check <>", value, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckGreaterThan(Integer value) {
+            addCriterion("m_check >", value, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckGreaterThanOrEqualTo(Integer value) {
+            addCriterion("m_check >=", value, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckLessThan(Integer value) {
+            addCriterion("m_check <", value, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckLessThanOrEqualTo(Integer value) {
+            addCriterion("m_check <=", value, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckIn(List<Integer> values) {
+            addCriterion("m_check in", values, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckNotIn(List<Integer> values) {
+            addCriterion("m_check not in", values, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckBetween(Integer value1, Integer value2) {
+            addCriterion("m_check between", value1, value2, "mCheck");
+            return (Criteria) this;
+        }
+
+        public Criteria andMCheckNotBetween(Integer value1, Integer value2) {
+            addCriterion("m_check not between", value1, value2, "mCheck");
             return (Criteria) this;
         }
     }

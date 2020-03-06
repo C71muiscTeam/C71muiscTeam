@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.C71S3Tstsmuisc.dao.UserMapper">
   <resultMap id="BaseResultMap" type="com.yc.C71S3Tstsmuisc.bean.User">
-    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="u_name" jdbcType="VARCHAR" property="uName" />
     <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
     <result column="u_type" jdbcType="INTEGER" property="uType" />
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    u_id, u_name, u_password, u_type, u_time, u_gender, u_avaor, u_email
+    id, u_name, u_password, u_type, u_time, u_gender, u_avaor, u_email
   </sql>
   <select id="selectByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.UserExample" resultMap="BaseResultMap">
     select
@@ -90,11 +90,11 @@
     select 
     <include refid="Base_Column_List" />
     from user
-    where u_id = #{uId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
-    where u_id = #{uId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.yc.C71S3Tstsmuisc.bean.UserExample">
     delete from user
@@ -103,19 +103,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
-    insert into user (u_id, u_name, u_password, 
-      u_type, u_time, u_gender, 
-      u_avaor, u_email)
-    values (#{uId,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
-      #{uType,jdbcType=INTEGER}, #{uTime,jdbcType=TIMESTAMP}, #{uGender,jdbcType=VARCHAR}, 
-      #{uAvaor,jdbcType=VARCHAR}, #{uEmail,jdbcType=VARCHAR})
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into user (u_name, u_password, u_type, 
+      u_time, u_gender, u_avaor, 
+      u_email)
+    values (#{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, #{uType,jdbcType=INTEGER}, 
+      #{uTime,jdbcType=TIMESTAMP}, #{uGender,jdbcType=VARCHAR}, #{uAvaor,jdbcType=VARCHAR}, 
+      #{uEmail,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uId != null">
-        u_id,
-      </if>
       <if test="uName != null">
         u_name,
       </if>
@@ -139,9 +142,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uId != null">
-        #{uId,jdbcType=INTEGER},
-      </if>
       <if test="uName != null">
         #{uName,jdbcType=VARCHAR},
       </if>
@@ -174,8 +174,8 @@
   <update id="updateByExampleSelective" parameterType="map">
     update user
     <set>
-      <if test="record.uId != null">
-        u_id = #{record.uId,jdbcType=INTEGER},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.uName != null">
         u_name = #{record.uName,jdbcType=VARCHAR},
@@ -205,7 +205,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update user
-    set u_id = #{record.uId,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
       u_name = #{record.uName,jdbcType=VARCHAR},
       u_password = #{record.uPassword,jdbcType=VARCHAR},
       u_type = #{record.uType,jdbcType=INTEGER},
@@ -242,7 +242,7 @@
         u_email = #{uEmail,jdbcType=VARCHAR},
       </if>
     </set>
-    where u_id = #{uId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yc.C71S3Tstsmuisc.bean.User">
     update user
@@ -253,6 +253,6 @@
       u_gender = #{uGender,jdbcType=VARCHAR},
       u_avaor = #{uAvaor,jdbcType=VARCHAR},
       u_email = #{uEmail,jdbcType=VARCHAR}
-    where u_id = #{uId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

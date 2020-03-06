@@ -3,7 +3,7 @@ package com.yc.C71S3Tstsmuisc.bean;
 import java.util.Date;
 
 public class Songlist {
-    private Integer lId;
+    private Integer id;
 
     private String lName;
 
@@ -13,14 +13,12 @@ public class Songlist {
 
     private String lIntro;
 
-    private Integer lCollect;
-
-    public Integer getlId() {
-        return lId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setlId(Integer lId) {
-        this.lId = lId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getlName() {
@@ -53,13 +51,5 @@ public class Songlist {
 
     public void setlIntro(String lIntro) {
         this.lIntro = lIntro == null ? null : lIntro.trim();
-    }
-
-    public Integer getlCollect() {
-        return lCollect;
-    }
-
-    public void setlCollect(Integer lCollect) {
-        this.lCollect = lCollect;
     }
 }

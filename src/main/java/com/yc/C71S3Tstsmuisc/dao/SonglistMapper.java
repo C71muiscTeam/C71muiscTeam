@@ -10,7 +10,7 @@ public interface SonglistMapper {
 
     int deleteByExample(SonglistExample example);
 
-    int deleteByPrimaryKey(Integer lId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Songlist record);
 
@@ -18,7 +18,7 @@ public interface SonglistMapper {
 
     List<Songlist> selectByExample(SonglistExample example);
 
-    Songlist selectByPrimaryKey(Integer lId);
+    Songlist selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Songlist record, @Param("example") SonglistExample example);
 

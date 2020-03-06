@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 设置日志输出为LOG4J -->
+        <setting name="logImpl" value="LOG4J" />
+        <!--将以下画线方式命名的数据库列映射到 Java 对象的驼峰式命名属性中-->
+       
+    </settings>
+    <plugins>
+	    <!-- com.github.pagehelper为PageHelper类所在包名 -->
+	    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+	        <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+	         <!--<!–分页参数合理化  –>-->
+	       <property name="reasonable" value="true"/>
+		</plugin>
+	</plugins>
+
+
+   
+   
+</configuration>

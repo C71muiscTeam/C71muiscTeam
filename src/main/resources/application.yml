@@ -2,14 +2,43 @@ server:
   port: 80
 
 
-spring: 
+spring:
+   mvc:
+      staticpathpattern: /**
    datasource:
       url: jdbc:mysql://127.0.0.1:3306/C71-S3-Tsts-music?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
       username: root
       password: ycsw
       driver-class-name: com.mysql.jdbc.Driver
 
+   mail:
+      host: smtp.qq.com
+      username: 2463079095@qq.com
+      password: bamlurmvxctfeaaf
+      default-encoding: UTF-8
+   resources:
+      staticLocations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/ c:/Users/24630/Desktop/C71muiscTeam/C71-S3-Tstt-muisc/target/classes/static/musicImg/    
+mail:
+   fromMail:
+      addr: 2463079095@qq.com     
+      
 logging:
    level:
      com:
        yc: debug
+       
+mybatis:
+  #mapper.xml文件位置
+  mapper-locations: classpath*:mapper/*.xml
+  check-config-location: true
+  #对应mapper的实体类
+  type-aliases-package: com.yc.C71S3Tstsmuisc.dao
+
+#pagehelper分页配置 第二种和第三种不需要 重点讲的第一种需要
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: pageNum=pageNum;pageSize=pageSize
+
+       

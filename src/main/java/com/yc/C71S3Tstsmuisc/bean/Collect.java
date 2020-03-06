@@ -1,7 +1,7 @@
 package com.yc.C71S3Tstsmuisc.bean;
 
 public class Collect {
-    private Integer cId;
+    private Integer id;
 
     private Integer cUserid;
 
@@ -9,16 +9,12 @@ public class Collect {
 
     private Integer cListid;
 
-    private Integer cAlbumid;
-
-    private Integer cSingerid;
-
-    public Integer getcId() {
-        return cId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setcId(Integer cId) {
-        this.cId = cId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getcUserid() {
@@ -43,21 +39,5 @@ public class Collect {
 
     public void setcListid(Integer cListid) {
         this.cListid = cListid;
-    }
-
-    public Integer getcAlbumid() {
-        return cAlbumid;
-    }
-
-    public void setcAlbumid(Integer cAlbumid) {
-        this.cAlbumid = cAlbumid;
-    }
-
-    public Integer getcSingerid() {
-        return cSingerid;
-    }
-
-    public void setcSingerid(Integer cSingerid) {
-        this.cSingerid = cSingerid;
     }
 }

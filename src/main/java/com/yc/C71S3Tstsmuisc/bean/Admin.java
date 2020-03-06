@@ -1,10 +1,12 @@
 package com.yc.C71S3Tstsmuisc.bean;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Admin {
     private Integer id;
-
+    @NotEmpty
     private String aName;
-
+    @NotEmpty
     private String aPassword;
 
     public Integer getId() {

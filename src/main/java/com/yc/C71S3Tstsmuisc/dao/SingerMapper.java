@@ -10,7 +10,7 @@ public interface SingerMapper {
 
     int deleteByExample(SingerExample example);
 
-    int deleteByPrimaryKey(Integer sId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Singer record);
 
@@ -18,7 +18,7 @@ public interface SingerMapper {
 
     List<Singer> selectByExample(SingerExample example);
 
-    Singer selectByPrimaryKey(Integer sId);
+    Singer selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Singer record, @Param("example") SingerExample example);
 

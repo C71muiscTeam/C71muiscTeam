@@ -1,7 +1,7 @@
 package com.yc.C71S3Tstsmuisc.bean;
 
 public class Singer {
-    private Integer sId;
+    private Integer id;
 
     private String sName;
 
@@ -11,12 +11,12 @@ public class Singer {
 
     private String sIntro;
 
-    public Integer getsId() {
-        return sId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setsId(Integer sId) {
-        this.sId = sId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getsName() {
